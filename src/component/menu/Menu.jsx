@@ -1,5 +1,6 @@
 import React from "react";
-import { makeStyles, Box, Typography } from "@material-ui/core";
+import { makeStyles, Box, Typography, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 
@@ -28,57 +29,42 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Menu(props) {
+  const meals = props.meals;
+  console.log(meals);
   const classes = useStyles();
 
-  return (
-    <Box>
-      <Typography className={classes.heading}>Recommended..</Typography>
-      <Box className={classes.container}>
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/paella.jpg"
-            title="Paella dish"
-          />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/paella.jpg"
-            title="Paella dish"
-          />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image="/static/images/cards/paella.jpg"
-            title="Paella dish"
-          />
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. Add 1 cup of frozen peas along
-              with the mussels, if you like.
-            </Typography>
-          </CardContent>
-        </Card>
+  if (meals === undefined) {
+    return <Typography>Loading..</Typography>;
+  } else
+    return (
+      <Box>
+        <Typography className={classes.heading}>Recommended..</Typography>
+
+        <Box className={classes.container}>
+          {meals.map((item) => (
+            <Link to={`getmeals/${item.name}`} style={{ textDecoration: "none" }}>
+              <Card className={classes.root}>
+                <CardMedia
+                  className={classes.media}
+                  image={item.url}
+                  title={item.name}
+                />
+                <CardContent>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    
+                  >
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </Box>
       </Box>
-    </Box>
-  );
+    );
 }
 
 export default Menu;

@@ -12,14 +12,20 @@ export const getRestro = () => async (dispatch) => {
   }
 };
 
-
-export const getRestroDetails = (id) => async(dispatch) =>{
-  try{
+export const getRestroDetails = (id) => async (dispatch) => {
+  try {
     const { data } = await axios.get(`${URL}/getrest/${id}`);
     dispatch({ type: action.GET_RESTRO_DETAIL_SUCCESS, payload: data });
-
-  }catch(err){
+  } catch (err) {
     dispatch({ type: action.GET_RESTRO_DETAIL_FAIL, payload: err.response });
-
   }
-}
+};
+
+export const getMealDetail = (id) => async (dispatch) => {
+  try {
+    const { data } = await axios.get(`${URL}/getmeals/${id}`);
+    dispatch({type : action.GET_MEAL_DETAIL_SUCCESS , payload :data})
+  } catch (err) {
+    dispatch({type : action.GET_MEAL_DETAIL_FAIL, payload :err.response})
+  }
+};

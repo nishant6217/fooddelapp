@@ -48,32 +48,36 @@ function DetailView({ match }) {
   useEffect(() => {
     dispatch(getRestroDetails(match.params.id));
   }, [dispatch]);
-  return (
-    <Box className={classes.container}>
-      <Box className={classes.subContainer}>
-        <Box>
-          <img src={restro.url} className={classes.image} />
-        </Box>
-        <Box className={classes.detailText}>
-          <Typography className={classes.restName}>
-            Belgian Waffle Factory
-          </Typography>
-          <Typography className={classes.restDetail}>
-            American, Desserts, Fast Food
-          </Typography>
-          <Typography className={classes.restDetail}>
-            M.I.G. 5Th Block, Koramangala
-          </Typography>
+  if (restro === undefined) {
+    return <Typography>Loading...</Typography>;
+  } else
+    return (
+      <Box className={classes.container}>
+        <Box className={classes.subContainer}>
+          <Box>
+            <img src={restro.url} className={classes.image} />
+          </Box>
+          <Box className={classes.detailText}>
+            <Typography className={classes.restName}>
+              {restro.title ? restro.title.shortTitle : "loading...."}
+            </Typography>
+            <Typography className={classes.restDetail}>
+              {restro.title ? restro.title.longTitle : "loading...."}
+            </Typography>
+            <Typography className={classes.restDetail}>
+              M.I.G. 5Th Block, Koramangala
+            </Typography>
 
-          <Typography style={{ color: "#d70f64", paddingTop: 10 }}>
-            500+ Ratings
-          </Typography>
+            <Typography style={{ color: "#d70f64", paddingTop: 10 }}>
+              500+ Ratings
+            </Typography>
+          </Box>
         </Box>
+        <Divider></Divider>
+
+        <Menu meals={restro.meal} />
       </Box>
-      <Divider></Divider>
-      <Menu />
-    </Box>
-  );
+    );
 }
 
 export default DetailView;

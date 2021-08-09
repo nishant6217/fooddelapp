@@ -46,6 +46,7 @@ const useStyles = makeStyles({
     fontSize: 14,
     marginTop: 5,
   },
+  
 });
 function Slide({ restro }) {
   const classes = useStyles();
@@ -71,9 +72,10 @@ function Slide({ restro }) {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
         containerClass="carousel-container"
+        className={classes.caro}
       >
         {restro.map((restro) => (
-          <Link to={`restro/${restro.id}`}>
+          <Link to={`restro/${restro.id}`} style={{ textDecoration: "none" }}>
             <Box textAlign="center" style={{ paddingTop: 20 }}>
               <img src={restro.url} className={classes.image} />
               <Typography
@@ -85,7 +87,7 @@ function Slide({ restro }) {
               <Typography className={classes.text} style={{ color: "#212121" }}>
                 {restro.title.longTitle}
               </Typography>
-
+          
               <Typography className={classes.text} style={{ color: "#d70f64" }}>
                 {restro.discount}
               </Typography>

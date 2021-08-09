@@ -3,7 +3,6 @@ export const banData = [
   "https://www.foodpanda.com/wp-content/uploads/2021/01/foodpanda-model-opt-scaled.jpg",
 ];
 
-
 export const restro = [
   {
     id: "product1",
@@ -50,8 +49,7 @@ export const restro = [
       "https://rukminim1.flixcart.com/image/416/416/kohigsw0/resistance-tube/c/s/e/new-adjustable-single-resistance-tube-multicolor-na-ajro-deal-original-imag2xg88mhmwxz5.jpeg?q=70",
     title: {
       shortTitle: "Truffles",
-      longTitle:
-        "American, Continental, Italian",
+      longTitle: "American, Continental, Italian",
     },
     price: {
       mrp: 499,
@@ -81,5 +79,23 @@ export const restro = [
       "The Molife Sense 500, a brilliant smartwatch with a beautiful large display. Say hello to the infinity 1.7-inch display with 2.5D curved edges. Thanks to seamless Bluetooth 5.0 connectivity, you wont have to keep waiting. Bring a change to your outfit every day with changeable straps. A splash of color every day keeps the boredom away.",
     discount: "Grab Now",
     tagline: "Best Seller",
+  },
+];
+
+export const addon = [
+  {
+    name: "Masala Wedges",
+    url: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/ttm2expxhqxp18hgmnhg",
+    price: 29,
+  },
+  {
+    name: "Coke",
+    url: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/fdexthv2xtsjhbnmqmzs",
+    price: 39,
+  },
+  {
+    name: "Vedica Zen Water Bottle",
+    url: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/lzv0zu1rg6vlllkijswd",
+    price: 35,
   },
 ];
