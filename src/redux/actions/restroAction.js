@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as action from "../constants/restConstant";
 
-const URL = "http://localhost:8000";
+const URL = "https://fooddelback.herokuapp.com";
 
 export const getRestro = () => async (dispatch) => {
   try {
